@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healing Arts Gallery | 2026 Staff Art Exhibition</title>
+    <link rel="icon" href="data:,">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <h1 class="app-title">Healing Arts Gallery <span class="app-title-sub">| UNMC</span></h1>
+        <div class="header-controls">
+            <button class="header-btn" id="searchToggle" title="Search" aria-expanded="false" aria-controls="searchBar">Search</button>
+            <button class="header-btn" id="tagToggle"    title="Filter artwork" aria-expanded="false" aria-controls="filterBar">Filter</button>
+            <button class="header-btn" id="infoBtn"      title="About this gallery">Info</button>
+        </div>
+        <img src="assets/iexcel-logo-red.png" alt="iEXCEL Logo" class="header-logo">
+    </header>
+
+    <div class="search-bar-wrap" id="searchBar">
+        <input
+            type="search"
+            id="searchInput"
+            class="search-input"
+            placeholder="Search by artist, title, medium, role, year..."
+            aria-label="Search artwork"
+        />
+        <button class="search-clear" id="searchClear">Clear</button>
+    </div>
+
+    <div class="filter-bar-wrap" id="filterBar">
+        <div class="filter-options" id="filterOptions"></div>
+    </div>
+
+    <div class="modal-overlay" id="infoModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-box">
+            <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+            <div class="modal-title" id="modalTitle">2026 Staff Art Exhibition</div>
+            <div class="modal-subtitle">Healing Arts Gallery · UNMC · iEXCEL</div>
+            <div class="modal-body">
+                <p>The Healing Arts Gallery celebrates the intersection of medicine and creativity at the University of Nebraska Medical Center.</p>
+                <p>The 2026 Staff Art Exhibition presents <span id="artworkCount">the</span> works by UNMC and Nebraska Medicine employees.</p>
+                <p>Works marked <span class="bcc-badge bcc-badge-inline">On view at BCC</span> are included in the physical art exhibition at BCC.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRID VIEW -->
+    <main id="galleryView">
+        <p id="galleryStatus" class="gallery-status" aria-live="polite"></p>
+        <div id="gallery" class="gallery"></div>
+    </main>
+
+    <!-- SINGLE ARTWORK VIEW -->
+    <section id="singleViewer" class="single-view hidden" aria-label="Artwork detail">
+        <div class="single-toolbar">
+            <button id="backBtn" class="back-btn">← Back</button>
+            <span id="positionLabel" class="position-label"></span>
+            <button id="playBtn" class="play-btn">Play Slideshow</button>
+        </div>
+
+        <div class="single-body">
+            <div class="single-stage">
+                <button id="prevBtn" class="nav-btn" aria-label="Previous artwork">❮</button>
+                <div class="single-img-container">
+                    <img id="singleImg" alt="">
+                </div>
+                <button id="nextBtn" class="nav-btn" aria-label="Next artwork">❯</button>
+            </div>
+
+            <aside class="art-info" aria-live="polite">
+                <h2 id="artTitle" class="art-title"></h2>
+                <p id="artArtist" class="art-artist"></p>
+                <p id="artYearMedium" class="art-year-medium"></p>
+                <p id="artRole" class="art-role"></p>
+                <p id="artAffiliation" class="art-affiliation"></p>
+                <span id="artBadge" class="bcc-badge hidden">On view at BCC</span>
+            </aside>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
