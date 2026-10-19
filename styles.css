@@ -70,6 +70,8 @@ body {
 
 @media (max-width: 600px) {
   .main-header { padding: 0.6rem 1rem; }
+  .app-title { flex: 1 1 220px; white-space: normal; }
+  .header-logo { margin-left: auto; }
   .header-controls { order: 3; width: 100%; margin: 0; gap: 0.5rem; }
   .header-btn { flex: 1; padding: 0.4rem; font-size: 0.9rem; }
 }
@@ -114,6 +116,33 @@ body {
   height: auto;
 }
 
+.gallery-label {
+  display: block;
+  padding: 0.9rem 1rem 1rem;
+  text-align: left;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.gallery-artist,
+.gallery-title {
+  display: block;
+}
+
+.gallery-artist {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.gallery-title {
+  margin-top: 0.25rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
 .gallery-item:hover,
 .gallery-item:focus-visible {
   transform: translateY(-6px);
@@ -130,6 +159,9 @@ body {
 @media (max-width: 480px) {
   .gallery { column-gap: 12px; padding: 16px; }
   .gallery-item { margin-bottom: 12px; }
+  .gallery-label { padding: 0.7rem 0.75rem 0.8rem; }
+  .gallery-artist { font-size: 0.95rem; }
+  .gallery-title { font-size: 0.8rem; }
 }
 
 /* ─── SINGLE VIEW ───────────────────────────────────── */
@@ -204,16 +236,18 @@ body {
 .art-info p { margin: 0 0 0.5rem; }
 
 .art-title {
-  font-size: 1.6rem;
+  font-size: 1.1rem;
   font-style: italic;
   font-weight: 400;
-  line-height: 1.25;
+  line-height: 1.35;
   margin: 0 0 0.6rem;
 }
 
 .art-artist {
-  font-size: 1.1rem;
+  font-size: 1.6rem;
   font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 0.4rem;
 }
 
 .art-year-medium {
@@ -256,7 +290,8 @@ body {
   .single-stage { gap: 0; }
   .single-stage .nav-btn { font-size: 36px; padding: 0 4px; }
   .single-toolbar .play-btn { font-size: 15px; }
-  .art-title { font-size: 1.35rem; }
+  .art-title { font-size: 1rem; }
+  .art-artist { font-size: 1.4rem; }
 }
 
 /* ─── NAVIGATION ────────────────────────────────────── */
@@ -532,4 +567,3 @@ body {
   background: var(--accent);
   color: white;
 }
-

@@ -104,17 +104,31 @@ fetch("images.json")
       const button = document.createElement("button");
       button.className = "gallery-item";
       button.dataset.index = index;
-      button.setAttribute("aria-label", `${item.title} by ${item.artist}`);
+      button.setAttribute("aria-label", `${item.artist} — ${item.title}`);
 
       const img = document.createElement("img");
       img.src = item.thumb;
-      img.alt = `${item.title} by ${item.artist}`;
+      img.alt = `${item.artist} — ${item.title}`;
       img.width = item.width;
       img.height = item.height;
       img.loading = "lazy";
       img.decoding = "async";
 
       button.appendChild(img);
+
+      const label = document.createElement("span");
+      label.className = "gallery-label";
+
+      const artist = document.createElement("span");
+      artist.className = "gallery-artist";
+      artist.textContent = item.artist;
+
+      const title = document.createElement("span");
+      title.className = "gallery-title";
+      title.textContent = item.title;
+
+      label.append(artist, title);
+      button.appendChild(label);
       button.addEventListener("click", () => {
         currentIndex = index;
         openSingle();
@@ -159,7 +173,7 @@ function applyFilters() {
   } else if (filtering) {
     galleryStatus.textContent = `Showing ${visible.length} of ${images.length} artworks`;
   } else {
-    galleryStatus.textContent = `2026 Staff Art Exhibition · ${images.length} artworks`;
+    galleryStatus.textContent = `2026 Nebraska Medicine & UNMC Staff Virtual Art Exhibition – ${images.length} artworks`;
   }
 
   // The result set changed, so the single view's neighbors are no longer valid.
@@ -320,7 +334,7 @@ function showSingle() {
       singleImg.height = art.height;
       singleImg.src = art.image;
     }
-    singleImg.alt = `${art.title} by ${art.artist}`;
+    singleImg.alt = `${art.artist} — ${art.title}`;
 
     setText(artTitle, art.title);
     setText(artArtist, art.artist);
