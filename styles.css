@@ -43,9 +43,14 @@ body {
   margin: 0;
 }
 
-.app-title-sub { opacity: 0.6; font-size: 0.8em; }
+.app-title-sub {
+  display: inline-flex; align-items: center; gap: 0.5em;
+  font-size: 0.8em;
+}
 
-.header-logo { max-height: 24px; width: auto; }
+.header-logo { max-height: 24px; width: auto; vertical-align: middle; }
+
+.header-shield { display: none; max-height: 32px; width: auto; }
 
 .header-controls {
   display: flex; align-items: center; gap: 1rem;
@@ -71,7 +76,8 @@ body {
 @media (max-width: 600px) {
   .main-header { padding: 0.6rem 1rem; }
   .app-title { flex: 1 1 220px; white-space: normal; }
-  .header-logo { margin-left: auto; }
+  .app-title-sub { display: none; }
+  .header-shield { display: block; margin-left: auto; }
   .header-controls { order: 3; width: 100%; margin: 0; gap: 0.5rem; }
   .header-btn { flex: 1; padding: 0.4rem; font-size: 0.9rem; }
 }
